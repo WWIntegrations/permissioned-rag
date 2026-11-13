@@ -1,0 +1,21 @@
+# USD per million tokens, standard (non-batch, non-cached) rates.
+# Source: Anthropic first-party API model pricing table (cached 2026-11-03),
+# checked 2026-11-12. Update `checked` whenever a number here changes.
+checked = "2026-11-12"
+
+[models.claude-haiku-5-5]
+api_id = "claude-haiku-5-5"
+input = 0.10
+output = 0.50
+note = "rate for prompts up to 100K tokens (0.50 / 2.50 above); every prompt here is far below that"
+
+[models.claude-sonnet-5-5]
+api_id = "claude-sonnet-5-5"
+input = 2.00
+output = 10.00
+
+[models."qwen3-1.7b"]
+api_id = "mlx-community/Qwen3-1.7B-4bit"
+input = 0.0
+output = 0.0
+note = "runs locally; no per-token charge. Hardware and electricity are not included."

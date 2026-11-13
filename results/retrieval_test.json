@@ -1,0 +1,83 @@
+{
+  "dataset": "BEIR FiQA-2018 test",
+  "queries_total": 648,
+  "query_embedding_ms_mean_batched": 10.24,
+  "settings": {
+    "lexical_k": 200,
+    "vector_k": 200,
+    "rrf_k": 60,
+    "rerank_top": 30,
+    "ef_search": 200,
+    "ts_rank_cd_normalization": 1,
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "reranker": "BAAI/bge-reranker-v2-m3"
+  },
+  "hardware": {
+    "platform": "macOS-26.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "model_name": "MacBook Pro",
+    "chip": "Apple M2",
+    "total_number_of_cores": "8 (4 performance and 4 efficiency)",
+    "memory": "16 GB"
+  },
+  "scopes": {
+    "corpus": {
+      "excluded_no_readable_relevant_doc": 0,
+      "methods": {
+        "lexical": {
+          "queries": 648,
+          "ndcg@10": 0.0776,
+          "recall@100": 0.3046,
+          "mrr@10": 0.0926,
+          "latency_ms_p50": 207.8,
+          "latency_ms_p95": 657.7
+        },
+        "vector": {
+          "queries": 648,
+          "ndcg@10": 0.3455,
+          "recall@100": 0.6497,
+          "mrr@10": 0.4193,
+          "latency_ms_p50": 4.8,
+          "latency_ms_p95": 8.7
+        },
+        "hybrid": {
+          "queries": 648,
+          "ndcg@10": 0.2523,
+          "recall@100": 0.6305,
+          "mrr@10": 0.3121,
+          "latency_ms_p50": 213.5,
+          "latency_ms_p95": 662.5
+        }
+      }
+    },
+    "permissioned": {
+      "excluded_no_readable_relevant_doc": 271,
+      "methods": {
+        "lexical": {
+          "queries": 377,
+          "ndcg@10": 0.1744,
+          "recall@100": 0.5378,
+          "mrr@10": 0.1539,
+          "latency_ms_p50": 33.4,
+          "latency_ms_p95": 103.7
+        },
+        "vector": {
+          "queries": 377,
+          "ndcg@10": 0.4963,
+          "recall@100": 0.8092,
+          "mrr@10": 0.4906,
+          "latency_ms_p50": 22.5,
+          "latency_ms_p95": 44.7
+        },
+        "hybrid": {
+          "queries": 377,
+          "ndcg@10": 0.3913,
+          "recall@100": 0.8054,
+          "mrr@10": 0.3667,
+          "latency_ms_p50": 57.6,
+          "latency_ms_p95": 131.9
+        }
+      }
+    }
+  }
+}

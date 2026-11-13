@@ -1,0 +1,30 @@
+{
+  "documents": 57638,
+  "chunks": 76026,
+  "docs_without_text": 38,
+  "embedding": {
+    "cached": false,
+    "fingerprint": "ab428735277479fd",
+    "seconds": 517.8,
+    "per_second": 146.8
+  },
+  "spec": {
+    "seed": 20261112,
+    "n_tenants": 4,
+    "groups_per_tenant": 8,
+    "users_per_tenant": 6,
+    "second_group_prob": 0.3,
+    "chunk_words": 180,
+    "chunk_overlap": 30
+  },
+  "load_seconds": {
+    "layout_and_documents": 0.4,
+    "chunks_with_indexes": 431.0
+  },
+  "table_sizes": {
+    "chunks": "406 MB",
+    "chunks_tsv_gin": "23 MB",
+    "chunks_embedding_hnsw": "148 MB",
+    "documents": "6264 kB"
+  }
+}

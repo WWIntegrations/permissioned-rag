@@ -1,0 +1,32 @@
+{
+  "split": "test",
+  "leakage": {
+    "queries": 648,
+    "principal_runs": 2592,
+    "returned_chunks_checked": 1939289,
+    "cross_tenant_chunks": 0,
+    "same_tenant_unauthorized_chunks": 0,
+    "forged_ids_requested": 51840,
+    "forged_ids_returned_unauthorized": 0
+  },
+  "exactness": {
+    "sample": 100,
+    "lexical_identical_to_hand_filtered": 100,
+    "vector_identical_to_exact_hand_filtered": 0,
+    "vector_overlap_mean": 0.9509
+  },
+  "default_deny": {
+    "rows_returned_without_identity": 0
+  },
+  "revocation": {
+    "trials": 50,
+    "membership_revoke_hidden_on_first_query": 50,
+    "membership_restore_visible_again": 50,
+    "document_acl_change_hidden_on_first_query": 50,
+    "revoke_commit_ms_p50": 0.23,
+    "revoke_commit_ms_p95": 0.29,
+    "first_query_after_commit_ms_p50": 35.6,
+    "first_query_after_commit_ms_p95": 67.13,
+    "note": "No cache sits between the policy and the data, so the bound is one query: the first query that starts after COMMIT returns sees the change."
+  }
+}

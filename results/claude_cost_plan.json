@@ -1,0 +1,25 @@
+{
+  "checked": "2026-11-12",
+  "cases": 50,
+  "models": {
+    "claude-haiku-5-5": {
+      "answer_calls": 50,
+      "answer_input_tokens_total": 54643,
+      "answer_output_tokens_expected_total": 5528,
+      "answer_cost_usd_expected": 0.0082,
+      "answer_cost_usd_upper_bound": 0.0149,
+      "judge_model": "claude-sonnet-5-5",
+      "judge_calls_upper_bound": 30,
+      "judge_input_tokens_total": 36508,
+      "judge_cost_usd_expected": 0.0748,
+      "judge_cost_usd_upper_bound": 0.1034,
+      "cost_per_1k_queries_usd_expected": 0.1646,
+      "price_per_mtok": {
+        "input": 0.1,
+        "output": 0.5
+      }
+    }
+  },
+  "total_usd_expected": 0.083,
+  "total_usd_upper_bound": 0.1183
+}

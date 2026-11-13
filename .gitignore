@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# Local Postgres cluster and logs
+pgdata/
+pglog/
+# Downloaded corpus and derived artifacts (re-created by `prag data fetch` / `prag ingest`)
+data/raw/
+data/cache/
+# Raw per-query outputs; summaries in results/ are committed
+results/raw/
+
+# Logs
+results/*.log
+
+# Editor and tool backups
+*.bak

@@ -1,0 +1,64 @@
+{
+  "model": "claude-haiku-5-5",
+  "cases": {
+    "answerable": 30,
+    "acl_blocked": 10,
+    "swapped": 10
+  },
+  "citation": {
+    "non_refusal_answers": 38,
+    "valid": 33,
+    "invalid": 5,
+    "uncited": 0,
+    "validity_rate": 0.868,
+    "problem_counts": {
+      "refusal_with_content": 3,
+      "quote_mismatch": 3
+    },
+    "answers_with_checked_quote": 19,
+    "mean_sentence_coverage": 0.712
+  },
+  "refusal": {
+    "answerable_false_refusal_rate": 0.0,
+    "acl_blocked_refusal_rate": 0.2,
+    "swapped_refusal_rate": 1.0
+  },
+  "judge": {
+    "model": "claude-sonnet-5-5",
+    "scored": 1,
+    "mean_score_1_to_5": 4.0,
+    "distribution": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 1,
+      "5": 0
+    },
+    "caveat": ""
+  },
+  "tokens_mean": {
+    "input": 1501.6,
+    "output": 134.8
+  },
+  "cost_per_1k_queries_usd": 0.2176,
+  "latency_s": {
+    "generation_p50": 1.39,
+    "generation_p95": 1.98,
+    "end_to_end_p50": 1.49,
+    "end_to_end_p95": 2.04
+  },
+  "settings": {
+    "context_chunks": 5,
+    "max_answer_tokens": 300,
+    "rerank": false
+  },
+  "hardware": {
+    "platform": "macOS-26.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "model_name": "MacBook Pro",
+    "chip": "Apple M2",
+    "total_number_of_cores": "8 (4 performance and 4 efficiency)",
+    "memory": "16 GB"
+  },
+  "wall_clock_s": 125.4
+}

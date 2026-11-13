@@ -1,0 +1,26 @@
+{
+  "ts_rank_cd norm=0": {
+    "ndcg@10": 0.0776,
+    "recall@100": 0.3013
+  },
+  "ts_rank_cd norm=1": {
+    "ndcg@10": 0.0799,
+    "recall@100": 0.3155
+  },
+  "ts_rank_cd norm=2": {
+    "ndcg@10": 0.0434,
+    "recall@100": 0.2549
+  },
+  "ts_rank_cd norm=1 max_df=0.01": {
+    "ndcg@10": 0.0744,
+    "recall@100": 0.2738
+  },
+  "ts_rank_cd norm=1 max_df=0.03": {
+    "ndcg@10": 0.0865,
+    "recall@100": 0.3192
+  },
+  "ts_rank_cd norm=1 max_df=0.1": {
+    "ndcg@10": 0.0848,
+    "recall@100": 0.3211
+  }
+}

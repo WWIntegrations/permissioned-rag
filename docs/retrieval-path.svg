@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-label="Post-filtering ranks every tenant's chunks and drops unreadable ones afterwards, so results shrink and leak. Here the row-level security policy runs inside both retrieval arms, so unreadable rows are never ranked; fused top 5 go to the model and every quote is checked before the answer is returned.">
+  <style>
+    .fg, .arr { fill: #e6edf3; } .ln { stroke: #e6edf3; } .mu { fill: #9198a1; }
+    .box { fill: none; stroke: #e6edf3; stroke-width: 1.4; }
+    .dash { fill: none; stroke: #9198a1; stroke-width: 1.2; stroke-dasharray: 4 3; }
+    .acc { fill: #0f2e1a; stroke: #3fb950; stroke-width: 1.8; } .acct { fill: #56d364; }
+    .bad { fill: none; stroke: #f85149; stroke-width: 1.4; } .badt { fill: #f85149; }
+    text { font: 13px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .s { font-size: 11px; } .h { font-size: 12px; font-weight: 600; letter-spacing: .06em; }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" class="arr"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="440" rx="10" fill="#0d1117"/>
+
+  <!-- A: post-filtering -->
+  <text x="20" y="32" class="h mu">POST-FILTERING (NOT USED)</text>
+  <rect x="20" y="50" width="100" height="44" rx="4" class="box"/>
+  <text x="70" y="77" text-anchor="middle" class="fg">query</text>
+  <rect x="160" y="50" width="190" height="44" rx="4" class="bad"/>
+  <text x="255" y="77" text-anchor="middle" class="fg">rank all chunks</text>
+  <rect x="390" y="50" width="100" height="44" rx="4" class="box"/>
+  <text x="440" y="77" text-anchor="middle" class="fg">top-k</text>
+  <rect x="530" y="50" width="200" height="44" rx="4" class="box"/>
+  <text x="630" y="77" text-anchor="middle" class="fg">drop unreadable in app</text>
+  <rect x="770" y="50" width="170" height="44" rx="4" class="bad"/>
+  <text x="855" y="77" text-anchor="middle" class="fg">fewer than k left</text>
+  <g class="ln" stroke-width="1.4" marker-end="url(#a)">
+    <line x1="120" y1="72" x2="158" y2="72"/>
+    <line x1="350" y1="72" x2="388" y2="72"/>
+    <line x1="490" y1="72" x2="528" y2="72"/>
+    <line x1="730" y1="72" x2="768" y2="72"/>
+  </g>
+  <text x="255" y="114" text-anchor="middle" class="s badt">other tenants take rank slots</text>
+  <text x="855" y="114" text-anchor="middle" class="s badt">length and order leak</text>
+
+  <line x1="20" y1="148" x2="940" y2="148" class="ln" stroke-width="0.6" stroke-dasharray="2 4"/>
+
+  <!-- B: filter inside the query -->
+  <text x="20" y="176" class="h mu">FILTER INSIDE THE QUERY (THIS REPO)</text>
+  <rect x="20" y="225" width="100" height="44" rx="4" class="box"/>
+  <text x="70" y="252" text-anchor="middle" class="fg">caller</text>
+  <text x="175" y="239" text-anchor="middle" class="s mu">set identity</text>
+  <text x="175" y="265" text-anchor="middle" class="s mu">txn-local</text>
+  <line x1="120" y1="247" x2="228" y2="247" class="ln" stroke-width="1.4" marker-end="url(#a)"/>
+
+  <rect x="230" y="219" width="210" height="56" rx="4" class="acc"/>
+  <text x="335" y="242" text-anchor="middle" class="acct" font-weight="600">RLS policy on chunks</text>
+  <text x="335" y="261" text-anchor="middle" class="s acct">unreadable rows never ranked</text>
+
+  <rect x="230" y="297" width="210" height="30" rx="4" class="dash"/>
+  <text x="335" y="316" text-anchor="middle" class="s mu">memberships (reader cannot SELECT)</text>
+  <line x1="335" y1="297" x2="335" y2="277" class="ln" stroke-width="1.2" marker-end="url(#a)"/>
+  <text x="343" y="291" class="s mu">groups</text>
+
+  <rect x="520" y="190" width="180" height="44" rx="4" class="box"/>
+  <text x="610" y="217" text-anchor="middle" class="fg">lexical top-200</text>
+  <rect x="520" y="260" width="180" height="44" rx="4" class="box"/>
+  <text x="610" y="287" text-anchor="middle" class="fg">vector top-200 (HNSW)</text>
+  <g class="ln" stroke-width="1.4" fill="none" marker-end="url(#a)">
+    <path d="M440 240 L518 212"/>
+    <path d="M440 254 L518 282"/>
+    <path d="M700 212 L738 240"/>
+    <path d="M700 282 L738 254"/>
+  </g>
+  <rect x="740" y="225" width="90" height="44" rx="4" class="box"/>
+  <text x="785" y="252" text-anchor="middle" class="fg">RRF</text>
+
+  <line x1="785" y1="269" x2="785" y2="348" class="ln" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="795" y="314" class="s mu">fused rank</text>
+  <rect x="705" y="350" width="160" height="44" rx="4" class="box"/>
+  <text x="785" y="377" text-anchor="middle" class="fg">top 5 chunks</text>
+
+  <line x1="705" y1="372" x2="622" y2="372" class="ln" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="663" y="364" text-anchor="middle" class="s mu">prompt</text>
+  <rect x="480" y="350" width="140" height="44" rx="4" class="box"/>
+  <text x="550" y="377" text-anchor="middle" class="fg">model</text>
+
+  <line x1="480" y1="372" x2="422" y2="372" class="ln" stroke-width="1.4" marker-end="url(#a)"/>
+  <text x="451" y="364" text-anchor="middle" class="s mu">draft</text>
+  <rect x="250" y="350" width="170" height="44" rx="4" class="acc"/>
+  <text x="335" y="377" text-anchor="middle" class="acct" font-weight="600">citation verifier</text>
+
+  <g class="ln" stroke-width="1.4" fill="none" marker-end="url(#a)">
+    <path d="M250 364 L192 344"/>
+    <path d="M250 380 L192 400"/>
+  </g>
+  <rect x="20" y="322" width="170" height="44" rx="4" class="box"/>
+  <text x="105" y="341" text-anchor="middle" class="fg">cited answer</text>
+  <text x="105" y="357" text-anchor="middle" class="s mu">every quote found</text>
+  <rect x="20" y="380" width="170" height="44" rx="4" class="bad"/>
+  <text x="105" y="399" text-anchor="middle" class="fg">flagged</text>
+  <text x="105" y="415" text-anchor="middle" class="s badt">quote absent or no cite</text>
+</svg>
