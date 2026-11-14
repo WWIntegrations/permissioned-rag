@@ -65,7 +65,7 @@ There is no cache between the policy and the data, so revocation takes effect fo
 | Refused when the context is another question's (swapped) | 0 / 10 | **10 / 10** | **10 / 10** |
 | Refused when the caller can read no relevant document (ACL-blocked) | 0 / 10 | 2 / 10 | 5 / 10 |
 | False refusals on answerable cases | 0 / 30 | 0 / 30 | 1 / 30 |
-| Judge score, 1 to 5, answerable cases | 4.03 (judged by itself, see below) | not reported (see below) | not reported (see below) |
+| Judge score, 1 to 5, answerable cases | 4.03 (judged by itself, see below) | 4.40 (30 of 30 scored by Claude Sonnet 5.5) | not yet re-judged (see below) |
 | Mean tokens in / out | 1,100 / 111 (Qwen tokenizer) | 1,502 / 135 | 1,502 / 144 |
 | Cost per 1,000 queries | $0 API (hardware and energy not counted) | $0.22 | $4.44 |
 | Generation latency p50 / p95 | 3.40 / 4.58 s | 1.39 / 1.98 s | 2.41 / 2.92 s |
@@ -88,7 +88,7 @@ prag eval answers --plan-only --sample 50      # prints the estimate, sends noth
 
 The plan was made before anything was sent, with the Qwen3 tokenizer because Claude's is not available offline. It estimated $0.32 for both runs (upper bound $0.52). Claude's tokenizer counted 1,502 input tokens per prompt against the plan's 1,093, so real input was about 37% higher than planned, close to the 35% margin in the upper bound. Measured answer cost: Haiku $0.011 and Sonnet $0.22 for 50 calls each.
 
-The judge scores for the hosted runs are not reported. The first judge run capped replies at 16 tokens; Claude Sonnet 5.5 explains before it scores, so 29 of 30 replies were cut off before the score line. The limit and the parser are fixed (`tests/test_judge_parse.py`), and `prag eval rejudge` grades the saved answers again without generating them anew. Citation validity and refusals above come from the deterministic verifier, not from the judge.
+The first judge run capped replies at 16 tokens; Claude Sonnet 5.5 explains before it scores, so 29 of 30 replies were cut off before the score line. The limit and the parser are fixed (`tests/test_judge_parse.py`), and `prag eval rejudge` grades the saved answers again without generating them anew. Re-judged, the Haiku answers score 4.40 (30 of 30 parsed: one 3, sixteen 4s, thirteen 5s). The Sonnet answers have not been re-judged yet, and a model judging its own answers would repeat the self-grading problem of the local run. Citation validity and refusals above come from the deterministic verifier, not from the judge.
 
 ### Load (`prag eval load`, `results/load.json`)
 

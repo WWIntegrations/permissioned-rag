@@ -25,14 +25,14 @@
   },
   "judge": {
     "model": "claude-sonnet-5-5",
-    "scored": 1,
-    "mean_score_1_to_5": 4.0,
+    "scored": 30,
+    "mean_score_1_to_5": 4.4,
     "distribution": {
       "1": 0,
       "2": 0,
-      "3": 0,
-      "4": 1,
-      "5": 0
+      "3": 1,
+      "4": 16,
+      "5": 13
     },
     "caveat": ""
   },
